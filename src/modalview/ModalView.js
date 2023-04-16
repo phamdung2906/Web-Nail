@@ -1,27 +1,22 @@
+import { IoExit } from "react-icons/io5";
+import ImageModal from "./components/ImageModal";
+import InforModal from "./components/InforModal";
 import React from "react";
 
 const ModalView = ({ handleModal }) => {
   return (
-    <section className="h-screen fixed right-0 left-0 top-0 bottom-0 z-10">
+    <section className="h-screen fixed right-0 left-0 top-0 bottom-0 z-10 ">
       <div
         onClick={handleModal}
-        className="bg-slate-200 w-full h-full opacity-40 "
+        className="bg-[#7c7b7a] w-full h-full opacity-40 "
       ></div>
-      <div className="bg-white xl:top-14 xl:bottom-14 xl:right-20 xl:left-20 sm:top-20 sm:bottom-10 sm:right-14 sm:left-14 absolute top-0 right-0 left-0 bottom-0 grid grid-cols-2">
-        <div className="flex flex-col">
-          <img
-            className="w-full h-4/5 p-2 rounded-2xl"
-            src="./imagespublic/sp1.jpg"
-            alt="anhsp"
-          ></img>
-          <div className="flex-1 items-center flex flex-row justify-evenly">
-            <img className="xl:w-32 xl:h-32 rounded-2xl w-24 h-24" src="./imagespublic/sp1.jpg" alt="anhsp"></img>
-            <img className="xl:w-32 xl:h-32 rounded-2xl w-24 h-24" src="./imagespublic/sp1.jpg" alt="anhsp"></img>
-            <img className="xl:w-32 xl:h-32 rounded-2xl w-24 h-24" src="./imagespublic/sp1.jpg" alt="anhsp"></img>
-            <img className="xl:w-32 xl:h-32 rounded-2xl w-24 h-24" src="./imagespublic/sp1.jpg" alt="anhsp"></img>
-          </div>
-        </div>
-        <div></div>
+      <div className="bg-white overflow-auto lg:overflow-hidden lg:h-[80%] lg:max-w-[1280px] m-auto absolute sm:top-16 sm:right-16 sm:left-16 sm:bottom-16 top-0 bottom-0 right-0 left-0 grid lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 shadow-[0px_0px_40px_rgba(0,0,0,0.2) relative] p-1 rounded-xl">
+        <IoExit
+          className="absolute right-1 top-2 hover:opacity-60 cursor-pointer text-3xl text-gray-700"
+          onClick={handleModal}
+        ></IoExit>
+        <ImageModal />
+        <InforModal handleModal={handleModal} />
       </div>
     </section>
   );

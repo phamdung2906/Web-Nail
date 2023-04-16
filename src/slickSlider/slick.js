@@ -73,7 +73,7 @@ export default function MySlider() {
       <Slider {...settings}>
         {data.map((e, i) => {
           return (
-            <div>
+            <div key={i}>
               <img
                 className="h-60 md:h-80 box-border px-1 w-full"
                 src={e.img}

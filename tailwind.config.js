@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateRows: {
+        '7': 'repeat(7,minmax(0,1fr))'
+      }
+    },
   },
   plugins: [],
 }

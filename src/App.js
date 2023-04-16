@@ -1,6 +1,8 @@
 import HomePage from "./pages/home";
+import CheckOut from "./pages/checkout/CheckOut";
 import Layout from "./pages/layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AllProducts from "./pages/allProducts/AllProducts";
 function App() {
   return (
     <BrowserRouter>
@@ -10,6 +12,10 @@ function App() {
           {/* <Route path="blogs" element={<Blogs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NoPage />} /> */}
+        </Route>
+        <Route path="/checkout" element={<CheckOut />}></Route>
+        <Route path="/allproducts" element={<Layout />}>
+          <Route index element={<AllProducts/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

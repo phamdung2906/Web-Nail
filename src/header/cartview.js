@@ -1,10 +1,12 @@
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-
+import ListOrders from "../features/orders/ListOrders";
+import { useSelector } from "react-redux";
+import { allOrder } from "../features/orders/orderSlice";
+import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { VND } from "../VND";
 export default function CartView(props) {
-  const VND = new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
-  });
+  const orders = useSelector(allOrder);
+  let total = 0;
   return (
     <section
       id="cartview"
@@ -16,7 +18,7 @@ export default function CartView(props) {
         }}
         className="bg-slate-800 absolute z-30 opacity-30 w-full h-full"
       ></div>
-      <div className="bg-white z-30 absolute right-0 w-full sm:w-[380px] h-full text-black">
+      <div className="bg-white z-30 absolute right-0 w-full sm:w-[430px] h-full text-black flex flex-col">
         <div className="bg-black text-white p-5 sm:h-[64px] md:h-[68px] flex items-center justify-between">
           <h1>Giỏ Hàng Của Bạn</h1>
           <i
@@ -26,35 +28,40 @@ export default function CartView(props) {
             class="fa-solid fa-x text-2xl cursor-pointer"
           ></i>
         </div>
-        <div className="h-full grid auto-rows-[120px]">
-          <div className="grid grid-cols-3 grid-rows-1 p-1 mt-1">
-            <div>
-              <img
-                src="./imagespublic/sp1.jpg"
-                alt="anhsp"
-                className="w-full h-full"
-              ></img>
+        {orders.length > 0 ? (
+          <div className="h-[calc(100%-68px)] flex flex-col">
+            <div className="grid auto-rows-[120px] h-[600px] md:h-4/5 overflow-auto my-2">
+              {orders.map((order, i) => {
+                total = total+ (order.price*order.quantity)
+                return <ListOrders key={order.id} order={order}></ListOrders>;
+              })}
             </div>
-            <div className="col-start-2 col-end-4 flex flex-row">
-              <div className="w-[65%] px-2 flex flex-col justify-between">
-                <h3>Nailbox Ma 001</h3>
-                <p>Size S</p>
-                <p>Form Vuong</p>
+            <div className=" flex-1 border-t-[1px] border-solid border-gray-900 p-6">
+              <div className="flex flex-row items-center justify-between mb-4">
+                <p>Thành tiền : </p>
+                <p>{VND.format(total)}</p>
               </div>
-              <div className=" flex-1 items-end flex flex-col justify-between">
-                <div className="text-right">
-                  <p className="text-lg font-medium">{VND.format(200000)}</p>
-                  <p className="text-base line-through">{VND.format(200000)}</p>
-                </div>
-                <div className="flex flex-row text-base items-center justify-between w-full">
-                  <AiOutlinePlus className="rounded-full bg-gray-400 cursor-pointer"></AiOutlinePlus>
-                  <p>Qty: 1</p>
-                  <AiOutlineMinus className="rounded-full bg-gray-400 cursor-pointer"></AiOutlineMinus>
-                </div>
-              </div>
+              <Link to={'/checkout'} className="bg-[#53c66e] flex flex-row items-center gap-1 justify-center font-medium py-4 cursor-pointer hover:opacity-70">
+                THANH TOÁN NGAY<BsArrowRight></BsArrowRight>
+              </Link>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-[#ffffff] h-72 flex flex-col items-center justify-evenly box-border p-10 mt-20">
+            <p className="text-center">
+              Hiện đang chưa có sản phẩm nào trong giỏ hàng của bạn.
+            </p>
+            <button
+              onClick={() => {
+                props.onClick("cart");
+              }}
+              className="bg-gray-900 text-white w-full py-4 text-center"
+            >
+              Mua hàng ngay
+              <BsArrowRight className="inline-block ml-3" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
