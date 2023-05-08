@@ -54,8 +54,8 @@ const AllProducts = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top when component mounts
     const getData = async ()=>{
-      const data = await fetch('http://localhost:5000/')
-      console.log(data)
+      const response = await axios.get('http://localhost:5000/')
+      console.log(response.data)
     }
     getData()
   }, []);
@@ -73,7 +73,7 @@ const AllProducts = () => {
         <TitleElement />
         <div className="grid grid-cols-1 w-full place-items-center mt-5 sm:grid-cols-2 lg:grid-cols-4">
           {data.map((e, i) => {
-            return <ItemProduct product={e} handleModal={handleModal} />;
+            return <ItemProduct key={i} product={e} handleModal={handleModal} />;
           })}
         </div>
       </section>

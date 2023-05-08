@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {BsArrowRight} from "react-icons/bs";
 const Information = () => {
   return (
-    <section className="md:border-r-2 md:border-black px-10 flex-1 lg:order-1 order-2">
+    <section className="lg:border-r-2 lg:border-black px-10 flex-1 lg:order-1 order-2">
       <div className="flex items-center justify-center flex-col my-8">
         <Link to={'/'}><img src="prev.png" alt="logo" className="w-40 h-40" /></Link>
         <h1 className="text-2xl font-semibold">THÔNG TIN KHÁCH HÀNG</h1>

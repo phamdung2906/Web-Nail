@@ -1,12 +1,7 @@
 import React from "react";
 import { useState } from "react";
-const ImageModal = () => {
-  const data = [
-    "./imagespublic/sp1.jpg",
-    "./imagespublic/sp2.jpg",
-    "./imagespublic/sp3.jpg",
-    "./imagespublic/sp4.jpg",
-  ];
+const ImageModal = ({ img }) => {
+  const data = [img, "./form/1.png", "./form/2.png", "./form/3.jpeg"];
   const [mainImg, setMainImg] = useState(data[0]);
   return (
     <div className="flex flex-col">

@@ -1,7 +1,6 @@
 import React from "react";
 import { addedOrder } from "../../features/orders/orderSlice";
 import { useDispatch } from "react-redux";
-import { nanoid } from "@reduxjs/toolkit";
 import Options from "./Options";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
@@ -11,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
 import { VND } from "../../VND";
-const InforModal = () => {
+const InforModal = ({ product }) => {
   const dispatch = useDispatch();
   const notify = () =>
     toast.success(<p className="text-base">Thêm thành công</p>, {
@@ -32,14 +31,14 @@ const InforModal = () => {
   const [size, setSize] = useState("");
   const [form, setForm] = useState("");
   const newOrder = {
-    id: nanoid(),
-    img: 1,
-    name: "Nailbox 001",
+    id: product._id,
+    img: product.img,
+    name: product.name,
     size: size,
     form: form,
     quantity: quantity,
-    price: 20000,
-    sale: 30000,
+    price: product.price,
+    sale: product.sale,
   };
   const handleAddOrder = (event) => {
     if (size !== "" && form !== "") {
@@ -54,7 +53,7 @@ const InforModal = () => {
     <div className=" p-4 flex flex-col lg:overflow-y-scroll ">
       <ToastContainer></ToastContainer>
       <h1 className="text-3xl md:text-[2.5rem] mr-8">
-        Nailbox Ma 001 | Móng Sơn Gel
+        {product.name} | Móng Sơn Gel
       </h1>
       <p className="text-base underline text-gray-600 my-4">Diamond nailbox</p>
       <Options
@@ -75,9 +74,9 @@ const InforModal = () => {
         ></textarea>
       </div>
       <div className="text-2xl mb-4">
-        Giá : <span className="font-medium">{VND.format(20000)}</span>{" "}
+        Giá : <span className="font-medium">{VND.format(product.price)}</span>{" "}
         <span className="text-xl line-through text-gray-600 ml-2">
-          {VND.format(50000)}
+          {VND.format(product.sale)}
         </span>
       </div>
       <div className="text-2xl flex flex-row">

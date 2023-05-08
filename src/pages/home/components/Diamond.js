@@ -10,7 +10,7 @@ const Diamond = () => {
         }}
         className="w-100% h-[550px] bg-cover bg-center md:h-[700ox] lg:h-[770px] relative"
       >
-        <div className="absolute h-48 right-0 bottom-5 sm:right-10 sm:h-46 sm:top-80 lg:right-16 lg:top-[28rem] p-4 lg:h-56 w-[30rem flex justify-between flex-col sm:items-start">
+        <div className="absolute h-48 right-0 bottom-5 sm:right-10 sm:h-46 sm:top-80 lg:right-16 lg:top-[28rem] p-4 lg:h-56 w-[30rem] flex justify-between flex-col sm:items-start">
           <div>
             <h1 className="sm:text-4xl lg:text-5xl">Diamond Nail</h1>
             <p className="text-lg sm:text-xl lg:text-2xl mt-2">
