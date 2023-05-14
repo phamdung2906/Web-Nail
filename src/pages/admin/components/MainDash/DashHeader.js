@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsSearch } from "react-icons/bs";
 import { HiOutlinePlus } from "react-icons/hi";
 import { useState } from "react";
-const DashHeader = ({ handleAddModal }) => {
+import { addModal } from "../../Admin";
+const DashHeader = () => {
   const [value, setValue] = useState("");
+  const { viewModal, setViewModal } = useContext(addModal);
   return (
     <header className=" h-[68px] flex items-center justify-between ml-[256px]">
       <form className="relative inline-block ml-8 w-96">
@@ -22,7 +24,7 @@ const DashHeader = ({ handleAddModal }) => {
         </button>
       </form>
       <span
-        onClick={handleAddModal}
+        onClick={() => setViewModal(!viewModal)}
         className="flex flex-row items-center gap-2 bg-black text-white px-4 py-2 rounded-2xl mr-8 cursor-pointer"
       >
         Thêm sản phẩm
