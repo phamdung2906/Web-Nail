@@ -5,48 +5,7 @@ import ModalView from "../../modalview/ModalView";
 import { useEffect } from "react";
 import axios from "axios";
 const AllProducts = () => {
-  const data = [
-    {
-      img: "./imagespublic/sp1.jpg",
-      name: "Nailbox Mã 001",
-      price: "20000",
-    },
-    {
-      img: "./imagespublic/sp2.jpg",
-      name: "Nailbox Mã 002",
-      price: "30000",
-    },
-    {
-      img: "./imagespublic/sp3.jpg",
-      name: "Nailbox Mã 003",
-      price: "40000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
-    },
-  ];
+  const [data,setData] = useState([])
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);
@@ -54,14 +13,15 @@ const AllProducts = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top when component mounts
     const getData = async ()=>{
-      const response = await axios.get('http://localhost:5000/')
-      console.log(response.data)
+      const response = await axios.get('http://localhost:5000/allproducts')
+      setData(response.data.data)
     }
     getData()
   }, []);
+  const [modalItem, setModalItem] = useState({})
   return (
     <main className="max-w-[1500px] mx-auto">
-      {modal && <ModalView handleModal={handleModal}></ModalView>}
+      {modal && <ModalView product={modalItem} handleModal={handleModal} ></ModalView>}
       <div
         style={{
           backgroundImage: `url(${require("../../images/products.jpg")})`,
@@ -73,7 +33,7 @@ const AllProducts = () => {
         <TitleElement />
         <div className="grid grid-cols-1 w-full place-items-center mt-5 sm:grid-cols-2 lg:grid-cols-4">
           {data.map((e, i) => {
-            return <ItemProduct key={i} product={e} handleModal={handleModal} />;
+            return <ItemProduct setModalItem={setModalItem} key={i} product={e} handleModal={handleModal} />;
           })}
         </div>
       </section>

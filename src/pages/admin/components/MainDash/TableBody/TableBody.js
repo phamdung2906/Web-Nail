@@ -9,12 +9,13 @@ const TableBody = () => {
     <tbody className="overflow-auto h-[50px]">
       {products.map((line, i) => {
         const h = line.hot === true ? "Co" : "Khong"; //convert boolean to String
+        const mainImg = line.images[0]
         return (
           <LineTable
             idProduct={line.idProduct}
             key={i}
             name={line.name}
-            img={line.images}
+            img={mainImg}
             type={line.type}
             price={line.price}
             sale={line.sale}

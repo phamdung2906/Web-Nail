@@ -3,38 +3,38 @@ import ItemProduct from "./ItemProduct";
 import ModalView from "../../../../modalview/ModalView"
 import axios from "axios";
 const HotProducts = () => {
-  // const URL = "http://127.0.0.1:5000/allproducts";
-  // const [data, setData] = useState([]);
-  // useEffect(() => {
-  //   async function fetchHotProducts() {
-  //     const response = await axios.get(URL);
-  //     setData(response.data);
-  //   }
-  //
-  //   fetchHotProducts();
-  // }, []);
-  const data = [
-    {
-      img: "./imagespublic/sp1.jpg",
-      name: "Nailbox Mã 001",
-      price: "20000",
-    },
-    {
-      img: "./imagespublic/sp2.jpg",
-      name: "Nailbox Mã 002",
-      price: "30000",
-    },
-    {
-      img: "./imagespublic/sp3.jpg",
-      name: "Nailbox Mã 003",
-      price: "40000",
-    },
-    {
-      img: "./imagespublic/sp4.jpg",
-      name: "Nailbox Mã 004",
-      price: "50000",
+  const URL = "http://127.0.0.1:5000/hotproducts";
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function fetchHotProducts() {
+      const response = await axios.get(URL);
+      setData(response.data.data);
     }
-  ];
+  
+    fetchHotProducts();
+  }, []);
+  // const data = [
+  //   {
+  //     img: "./imagespublic/sp1.jpg",
+  //     name: "Nailbox Mã 001",
+  //     price: "20000",
+  //   },
+  //   {
+  //     img: "./imagespublic/sp2.jpg",
+  //     name: "Nailbox Mã 002",
+  //     price: "30000",
+  //   },
+  //   {
+  //     img: "./imagespublic/sp3.jpg",
+  //     name: "Nailbox Mã 003",
+  //     price: "40000",
+  //   },
+  //   {
+  //     img: "./imagespublic/sp4.jpg",
+  //     name: "Nailbox Mã 004",
+  //     price: "50000",
+  //   }
+  // ];
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);

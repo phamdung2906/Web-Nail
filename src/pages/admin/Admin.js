@@ -16,6 +16,7 @@ const Admin = () => {
     const fechtData = async () => {
       const response = await axios.get(URL);
       const data = response.data.data;
+    
       setProducts(data);
     };
     fechtData();

@@ -69,18 +69,18 @@ const AddModal = () => {
   };
 
   // set name for image to render on client immediately
-  const [name, setName] = useState("");
+  const [name, setName] = useState([]);
   useEffect(() => {
     Object.keys(state.images).forEach((key) => {
-      setName(state.images[0].name);
+      setName((pre) => [...pre, state.images[key].name]);
     });
   }, [state.images]);
-
+ 
   return (
     <upLoadInfor.Provider value={contextValue}>
       <div className="fixed top-0 left-0 right-0 bottom-0 z-20">
         <div
-          className="w-full h-full bg-gray-400 opacity-40 " 
+          className="w-full h-full bg-gray-400 opacity-40 "
           onClick={() => setViewModal(!viewModal)}
         ></div>
         <div className="bg-slate-100 absolute top-20 bottom-20 left-[30%] right-[30%] max-w-[1380px] mx-auto p-4 shadow-xl">

@@ -1,6 +1,8 @@
 import React from "react";
 import { VND } from "../../../../VND";
 const ItemProduct = ({ product, handleModal, setModalItem }) => {
+  
+  const IMGURL = `http://127.0.0.1:5000/images/${product.images[0]}`
   return (
     <div
       onClick={() => {
@@ -11,7 +13,7 @@ const ItemProduct = ({ product, handleModal, setModalItem }) => {
     >
       <div className="h-full w-5/6 sm:w-full p-2  row-start-1 row-end-5 mx-auto ">
         <img
-          src={product.img}
+          src={IMGURL}
           alt={product.name}
           className="w-full h-full rounded-xl"
         ></img>

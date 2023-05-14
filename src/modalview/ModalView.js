@@ -4,7 +4,7 @@ import InforModal from "./components/InforModal";
 import React from "react";
 
 const ModalView = ({ handleModal , product}) => {
-  console.log(product)
+
   return (
     <section className="h-screen fixed right-0 left-0 top-0 bottom-0 z-10 ">
       <div
@@ -16,7 +16,7 @@ const ModalView = ({ handleModal , product}) => {
           className="absolute right-1 top-2 hover:opacity-60 cursor-pointer text-3xl text-gray-700"
           onClick={handleModal}
         ></IoExit>
-        <ImageModal img={product.img}/>
+        <ImageModal images={product.images}/>
         <InforModal product={product} handleModal={handleModal} />
       </div>
     </section>

@@ -52,7 +52,7 @@ const InforModal = ({ product }) => {
   return (
     <div className=" p-4 flex flex-col lg:overflow-y-scroll ">
       <ToastContainer></ToastContainer>
-      <h1 className="text-3xl md:text-[2.5rem] mr-8">
+      <h1 className="text-3xl mr-8">
         {product.name} | Móng Sơn Gel
       </h1>
       <p className="text-base underline text-gray-600 my-4">Diamond nailbox</p>
@@ -67,19 +67,19 @@ const InforModal = ({ product }) => {
         setForm={setForm}
       ></Options>
       <div className="my-4">
-        <h1 className="text-2xl mb-2">Ghi chú</h1>
+        <h1 className="text-xl mb-2">Ghi chú</h1>
         <textarea
-          className="w-full h-28 text-xl p-2 border-2 border-black rounded-xl"
+          className="w-full h-28 text-lg p-2 border-2 border-gray-300 rounded-xl"
           placeholder="Ghi chú size tay từ ngón cái Vd: 1.2/1.1/1.0/0.9/0.8"
         ></textarea>
       </div>
-      <div className="text-2xl mb-4">
-        Giá : <span className="font-medium">{VND.format(product.price)}</span>{" "}
+      <div className="text-xl mb-4">
+        Giá : <span className="font-medium text-2xl">{VND.format(product.price)}</span>{" "}
         <span className="text-xl line-through text-gray-600 ml-2">
           {VND.format(product.sale)}
         </span>
       </div>
-      <div className="text-2xl flex flex-row">
+      <div className="text-xl flex flex-row">
         Số Lượng :
         <div className="flex flex-row items-center gap-2 ml-2 ">
           <AiOutlineMinus
@@ -111,23 +111,9 @@ const InforModal = ({ product }) => {
         </Link>
       </div>
       <div className="text-xl mb-4">
-        <h1>Mô tả sản phẩm</h1>
+        <h1 className="font-semibold">Mô tả sản phẩm</h1>
         <ul>
-          <li> Nailbox thiết kế thủ công ( kèm deo dũa )</li>
-          <li>
-            Khách đo chuẩn size tay nha. Nếu size tay không ứng với bảng size
-            vui lòng ghi rõ size tay từng ngón theo thứ tự ngón cái trước{" "}
-          </li>
-          <li>( Ví dụ : trái 1.1/1/0.9/0.8/0.7 phải 1.1/1/0.9/0.8/0.7 )</li>
-          <li>
-            <ul>
-              Thiết kế NailBox theo yêu cầu size 1 bộ gồm :
-              <li>•10 ngón úp thiết kế</li>
-              <li> •1 chai keo </li>
-              <li>•1 dũa mini •Giấy cồn lau</li>
-              <li> •Card HDSD</li>
-            </ul>
-          </li>
+          <span className="text-lg">{product.description}</span>
         </ul>
       </div>
     </div>
