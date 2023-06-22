@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "./Admin";
