@@ -1,7 +1,8 @@
 import React from "react";
 import { VND } from "../../../../VND";
+import { URLBE } from "../../../../BackendURL";
 const ItemProduct = ({ product, handleModal, setModalItem }) => {
-  const IMGURL = `http://127.0.0.1:5000/images/${product.images[0]}`;
+  const IMGURL = `${URLBE}images/${product.images[0]}`;
   return (
     <div
       onClick={() => {

@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import ItemProduct from "./ItemProduct";
 import ModalView from "../../../../modalview/ModalView"
 import axios from "axios";
+import { URLBE } from "../../../../BackendURL";
 const HotProducts = () => {
-  const URL = "http://127.0.0.1:5000/hotproducts";
+  const URL = `${URLBE}hotproducts`;
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchHotProducts() {
       const response = await axios.get(URL);
       setData(response.data.data);
     }
-  
+
     fetchHotProducts();
   }, []);
-  
+
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);
