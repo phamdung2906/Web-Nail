@@ -28,24 +28,7 @@ const TitleElement = () => {
                   </li>
                 );
               })}
-              {/* <li
-                onClick={() => setSortType("macdinh")}
-                className="p-3 hover:bg-gray-300"
-              >
-                Mặc định<BsCheck2></BsCheck2>
-              </li>
-              <li
-                onClick={() => setSortType("tangdan")}
-                className="p-3 hover:bg-gray-300"
-              >
-                Giá tăng dần
-              </li>
-              <li
-                onClick={() => setSortType("giamdan")}
-                className="p-3 hover:bg-gray-300"
-              >
-                Giá giảm dần
-              </li> */}
+             
             </ul>
           </div>
         </div>

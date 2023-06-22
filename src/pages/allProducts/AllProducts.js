@@ -4,6 +4,7 @@ import ItemProduct from "../home/components/HotProducts/ItemProduct";
 import ModalView from "../../modalview/ModalView";
 import { useEffect } from "react";
 import axios from "axios";
+import { URLBE } from "../../BackendURL";
 export const SortType = React.createContext();
 const AllProducts = () => {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ const AllProducts = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top when component mounts
     const getData = async () => {
-      const response = await axios.get("http://localhost:5000/allproducts");
+      const response = await axios.get(`${URLBE}allproducts`);
       setData(response.data.data);
     };
     getData();

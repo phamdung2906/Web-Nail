@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "./Admin";
+import { URLBE } from "../../BackendURL";
 const LoginPage = () => {
   const { setIsLogin } = useContext(login);
   const [username, setUsername] = useState("");
@@ -56,11 +57,11 @@ const LoginPage = () => {
     );
   };
   const handleLogin = async (e) => {
-    const URL = "http://localhost:5000/admin";
+    const url = `${URLBE}admin`;
     const formData = new FormData();
     formData.append("username", username);
     formData.append("password", password);
-    const response = await axios.post(URL, formData);
+    const response = await axios.post(url, formData);
     if (response.data.status === "OK") setIsLogin(true)
     else alert('Sai thông tin tài khoản')
   };

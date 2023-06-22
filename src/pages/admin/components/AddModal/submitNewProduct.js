@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
-
-const URL = "http://localhost:5000/uploadproduct";
+import { URLBE } from "../../../../BackendURL";
+const URL = `${URLBE}uploadproduct`;
 
 export const submitNewProduct = ({
   method,

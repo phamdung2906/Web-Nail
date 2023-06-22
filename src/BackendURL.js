@@ -1,0 +1,1 @@
+export const URLBE = 'https://backenddiamondnail.netlify.app/'

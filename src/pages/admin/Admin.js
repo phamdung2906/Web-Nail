@@ -4,6 +4,7 @@ import MainDash from "./components/MainDash";
 import AddModal from "./components/AddModal/AddModal";
 import axios from "axios";
 import LoginPage from "./LoginPage";
+import { URLBE } from "../../BackendURL";
 
 export const newProductStore = React.createContext();
 export const addModal = React.createContext();
@@ -18,7 +19,7 @@ const Admin = () => {
   const [layout, setLayout] = useState("Sản Phẩm");
   // fetch data from DB
   useEffect(() => {
-    const URL = "http://localhost:5000/uploadproduct";
+    const URL = `${URLBE}uploadproduct`;
     const fechtData = async () => {
       const response = await axios.get(URL);
       const data = response.data.data;

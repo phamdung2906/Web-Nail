@@ -1,10 +1,11 @@
 import React from "react";
 import { FiEye } from "react-icons/fi";
 import { RiDeleteBin2Line } from "react-icons/ri";
+import { URLBE } from "../../../../../BackendURL";
 const ImageItem = ({ file ,handleDeleteImg , index}) => {
   const img =
   typeof file === "string"
-    ? `http://localhost:5000/images/${file}`
+    ? `${URLBE}${file}`
     : file.url;
   return (
     <div className="group w-[23%] h-32 relative">

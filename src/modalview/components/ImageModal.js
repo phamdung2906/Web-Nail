@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { URLBE } from "../../BackendURL";
 const ImageModal = ({ images }) => {
  
   const [mainImg, setMainImg] = useState(images[0]);
@@ -8,13 +9,13 @@ const ImageModal = ({ images }) => {
       <div className="w-full h-[420px] sm:h-[80%]">
         <img
           className="w-full h-full p-2 rounded-2xl mx-auto"
-          src={`http://127.0.0.1:5000/images/${mainImg}`}
+          src={`${URLBE}${mainImg}`}
           alt="anhsp"
         ></img>
       </div>
       <div className="h-24 md:h-32 items-center flex flex-row justify-evenly p-2">
         {images.map((e, i) => {
-          const URL = `http://127.0.0.1:5000/images/${e}`
+          const URL = `${URLBE}${e}`
           return (
             <img
               key={i}

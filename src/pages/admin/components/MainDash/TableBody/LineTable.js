@@ -14,7 +14,7 @@ const LineTable = ({
   idProduct,
   handleEdit,
 }) => {
-  const imgURL = "http://localhost:5000/images/" + img;
+  const imgURL = "https://backenddiamondnail.netlify.app/" + img;
   const ImagePart = () => {
     return (
       <td className="flex h-full items-center">
@@ -38,7 +38,7 @@ const LineTable = ({
     const arrClone = products.slice();
     const newArr = arrClone.filter((e) => e.idProduct !== idProduct);
     setProducts(newArr);
-    const URL = `http://localhost:5000/product/${idProduct}`;
+    const URL = `https://backenddiamondnail.netlify.app/${idProduct}`;
     console.log(URL);
     console.log(idProduct);
     const deleteOnServer = async () => {

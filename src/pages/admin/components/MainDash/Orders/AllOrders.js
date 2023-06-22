@@ -5,7 +5,7 @@ import CancelOrder from "./CancelOrder";
 export const titleOrder = React.createContext();
 const AllOrders = () => {
   const [title, setTitle] = useState("loading");
-  const URL = "http://localhost:5000/orders";
+  const URL = "https://backenddiamondnail.netlify.app/orders";
   const [fullOrder, setFullOrder] = useState([]);
   useEffect(() => {
     const fecthData = async () => {
