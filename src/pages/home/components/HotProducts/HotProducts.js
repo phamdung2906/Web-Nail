@@ -4,10 +4,11 @@ import ModalView from "../../../../modalview/ModalView"
 import axios from "axios";
 import { URLBE } from "../../../../BackendURL";
 const HotProducts = () => {
-  const URL = `${URLBE}hotproducts`;
+ 
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchHotProducts() {
+      const URL = `${URLBE}hotproducts`;
       const response = await axios.get(URL);
       setData(response.data.data);
     }
