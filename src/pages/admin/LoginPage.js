@@ -55,16 +55,6 @@ const LoginPage = () => {
       </div>
     );
   };
-  // useEffect(() => {
-  //   const postRequest = async (username, password) => {
-  //     const URL = "http://localhost:5000/admin";
-  //     const response = await axios.post(URL);
-  //     const data = response.data.data;
-
-  //     setData(data[0]);
-  //   };
-  //   postRequest();
-  // }, []);
   const handleLogin = async (e) => {
     const URL = "http://localhost:5000/admin";
     const formData = new FormData();
