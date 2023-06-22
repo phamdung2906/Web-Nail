@@ -1,15 +1,22 @@
 import React, { useContext } from "react";
 import LineTable from "./LineTable";
-
+import { addModal } from "../../../Admin";
 import { newProductStore } from "../../../Admin";
+import { editProductById } from "../../../Admin";
 const TableBody = () => {
   const { products } = useContext(newProductStore);
+  const { viewModal, setViewModal } = useContext(addModal);
 
+  const { setEditProduct } = useContext(editProductById);
+  const handleEdit = (productId) => {
+    const productEdited = products.filter((pro) => pro.idProduct === productId);
+    setEditProduct(productEdited);
+  };
   return (
-    <tbody className="overflow-auto h-[50px]">
+    <tbody className="overflow-auto ">
       {products.map((line, i) => {
-        const h = line.hot === true ? "Co" : "Khong"; //convert boolean to String
-        const mainImg = line.images[0]
+        const h = JSON.parse(line.hot) === true ? "Có" : "Không"; //convert boolean to String
+        const mainImg = line.images[0];
         return (
           <LineTable
             idProduct={line.idProduct}
@@ -21,6 +28,10 @@ const TableBody = () => {
             sale={line.sale}
             status={line.status}
             hot={h}
+            handleEdit={() => {
+              setViewModal(!viewModal);
+              handleEdit(line.idProduct);
+            }}
           />
         );
       })}

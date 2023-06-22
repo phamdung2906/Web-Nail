@@ -1,7 +1,11 @@
 import React from "react";
 
-const LineTbHeader = ({ title }) => {
-  return <th className="text-left">{title}</th>;
+const LineTbHeader = ({ width, title }) => {
+  return (
+    <th style={{ width: width }} className="text-left text-lg">
+      {title}
+    </th>
+  );
 };
 
 export default LineTbHeader;

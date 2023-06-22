@@ -22,10 +22,10 @@ const WhyUsing = () => {
   ];
   return (
     <section
-      id=""
+      id="whyusingnailbox"
       className="max-w-[1300px] mx-auto p-4 my-5 flex flex-col items-center"
     >
-      <h1 className="font-light lg:text-4xl text-center text-3xl p-4">
+      <h1 className="font-medium lg:text-4xl text-center text-3xl p-4">
         TẠI SAO NÊN SỬ DỤNG NAILBOX ?
       </h1>
       <div className="grid grid-cols-1 grid-rows-3 md:grid-cols-2 gap-10 mt-10 md:grid-rows-2 p-4 lg:grid-rows-1 lg:grid-cols-3">

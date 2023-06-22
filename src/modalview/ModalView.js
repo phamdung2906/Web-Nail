@@ -1,10 +1,10 @@
 import { IoExit } from "react-icons/io5";
 import ImageModal from "./components/ImageModal";
-import InforModal from "./components/InforModal";
+import InforModal from "./components/InforModal/InforModal";
 import React from "react";
 
 const ModalView = ({ handleModal , product}) => {
-
+  console.log(product);
   return (
     <section className="h-screen fixed right-0 left-0 top-0 bottom-0 z-10 ">
       <div

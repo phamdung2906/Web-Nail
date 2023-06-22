@@ -1,8 +1,7 @@
 import React from "react";
 import { VND } from "../../../../VND";
 const ItemProduct = ({ product, handleModal, setModalItem }) => {
-  
-  const IMGURL = `http://127.0.0.1:5000/images/${product.images[0]}`
+  const IMGURL = `http://127.0.0.1:5000/images/${product.images[0]}`;
   return (
     <div
       onClick={() => {
@@ -22,9 +21,15 @@ const ItemProduct = ({ product, handleModal, setModalItem }) => {
       <div className="text-center text-xl px-3 font-normal">
         <h2 className="text-2xl font-light">{product.name}</h2>
         <div className="flex flex-row items-center justify-center">
-          <p className="font-medium">Giá : {VND.format(product.price)}</p>
+          <p className="font-medium">
+            Giá :{" "}
+            {VND.format(
+              product.price -
+                (product.price * (product.sale === 0 ? 1 : product.sale)) / 100
+            )}
+          </p>
           <p className="line-through opacity-60 ml-2 text-lg">
-            {VND.format(product.sale)}
+            {VND.format(product.price)}
           </p>
         </div>
       </div>

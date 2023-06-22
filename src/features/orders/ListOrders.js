@@ -3,24 +3,24 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import { deleteOrder, handleQuantity } from "./orderSlice";
-import { useDispatch } from "react-redux"; 
-const ListOrders = ({ order , checkout }) => {
+import { useDispatch } from "react-redux";
+const ListOrders = ({ order, checkout }) => {
   const dispatch = useDispatch();
   const VND = new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
   });
-  let width= '100%'
-  let className = ""
-  if(checkout===1){
-    width='80%'
-    className = "md:text-2xl text-xl"
+  let width = "100%";
+  let className = "";
+  if (checkout === 1) {
+    width = "80%";
+    className = "md:text-2xl text-xl";
   }
   return (
     <div className="grid grid-cols-3 grid-rows-1 px-4 py-2">
       <div>
         <img
-          src="./imagespublic/sp1.jpg"
+          src={`http://127.0.0.1:5000/images/${order.img}`}
           alt="anhsp"
           className="h-full rounded-xl"
           width={width}
@@ -41,8 +41,13 @@ const ListOrders = ({ order , checkout }) => {
             title="Xóa"
           ></RiDeleteBinLine>
           <div className="text-right">
-            <p className="text-lg font-medium">{VND.format(order.price)}</p>
-            <p className="text-base line-through">{VND.format(order.sale)}</p>
+            <p className="text-lg font-medium">
+              {VND.format(
+                order.price -
+                  (order.price * (order.sale === 0 ? 1 : order.sale)) / 100
+              )}
+            </p>
+            <p className="text-base line-through">{VND.format(order.price)}</p>
           </div>
 
           <div className="flex flex-row text-base items-center justify-between w-full">

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#f8f7f4] border-t-[1px] border-solid border-black py-10">
+    <footer id="footer" className="bg-[#f8f7f4] border-t-[1px] border-solid border-black py-10">
       <div className="max-w-[1300px] mx-auto p-5 md:h-[420px] h-[700px] sm:h-[600px] grid md:grid-rows-1 md:grid-cols-[1fr,2fr] grid-rows-[1fr,2fr] grid-cols-1 box-border">
         <div className="flex flex-col items-center justify-center">
           <img src="prev.png" className="w-40 h-40" alt="logo"></img>

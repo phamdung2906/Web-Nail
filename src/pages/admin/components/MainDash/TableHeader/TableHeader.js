@@ -4,13 +4,12 @@ const TableHeader = () => {
   return (
     <thead>
       <tr key="" className="h-10">
-        <LineTbHeader title={"Sản phẩm"} />
-        <LineTbHeader title={"Giá"} />
-        <LineTbHeader title={"Sale"} />
-        <LineTbHeader title={"Type"} />
-        <LineTbHeader title={"Status"} />
-        <LineTbHeader title={"Hot"} />
-        <LineTbHeader title={"Hành động"} />
+        <LineTbHeader width={''} title={"Sản phẩm"} />
+        <LineTbHeader width={'13%'} title={"Giá gốc"} />
+        <LineTbHeader width={'13%'} title={"% Sale"} />
+        <LineTbHeader width={'13%'} title={"Loại"} />
+        <LineTbHeader width={'10%'} title={"Nổi bật"} />
+        <LineTbHeader width={'13%'} title={"Hành động"} />
       </tr>
     </thead>
   );

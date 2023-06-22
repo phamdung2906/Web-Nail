@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { VND } from "../../../../../VND";
 import { AiTwotoneEdit, AiOutlineDelete } from "react-icons/ai";
 import { newProductStore } from "../../../Admin";
-import axios from "axios";
 
 const LineTable = ({
   name,
@@ -13,6 +12,7 @@ const LineTable = ({
   status,
   hot,
   idProduct,
+  handleEdit,
 }) => {
   const imgURL = "http://localhost:5000/images/" + img;
   const ImagePart = () => {
@@ -23,10 +23,11 @@ const LineTable = ({
       </td>
     );
   };
+
   const PricePart = () => <td>{VND.format(price)}</td>;
-  const SalePart = () => <td>{VND.format(sale)}</td>;
+  const SalePart = () => <td>{sale + " %"}</td>;
   const TypePart = () => <td>{type}</td>;
-  const StatusPart = () => <td>{status}</td>;
+
   const HotPart = () => <td>{hot}</td>;
   //use context list of product
   const { products, setProducts } = useContext(newProductStore);
@@ -38,31 +39,37 @@ const LineTable = ({
     const newArr = arrClone.filter((e) => e.idProduct !== idProduct);
     setProducts(newArr);
     const URL = `http://localhost:5000/product/${idProduct}`;
+    console.log(URL);
+    console.log(idProduct);
     const deleteOnServer = async () => {
-      const response = await axios.delete(URL);
-      console.log(response.data);
+      const response = await fetch(URL, {
+        method: "DELETE",
+      });
+      const data = await response.json();
+      console.log(data);
     };
     deleteOnServer();
   };
 
-  const handleEdit = (idProduct)=>{
-    console.log(idProduct);
-  }
   const HanhDongPart = () => {
     return (
       <td className="">
         <button
-          onClick={() => handleEdit(idProduct)}
+          onClick={() => {
+            handleEdit();
+          }}
           className="mr-3 flex flex-row items-center gap-2 mb-2"
         >
-          Edit
+          Chỉnh sửa
           <AiTwotoneEdit />
         </button>
         <button
-          onClick={() => handleRemove(idProduct)}
+          onClick={() => {
+            handleRemove(idProduct);
+          }}
           className="mr-3 flex flex-row items-center gap-2"
         >
-          Xoa
+          Xóa
           <AiOutlineDelete />
         </button>
       </td>
@@ -70,12 +77,11 @@ const LineTable = ({
   };
   return (
     <>
-      <tr key="" className="h-28 bg-gray-200 ">
+      <tr key="" className="h-28 bg-gray-100 hover:bg-gray-200 text-base">
         <ImagePart></ImagePart>
         <PricePart />
         <SalePart />
         <TypePart></TypePart>
-        <StatusPart />
         <HotPart />
         <HanhDongPart />
       </tr>

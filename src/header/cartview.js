@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { VND } from "../VND";
 export default function CartView(props) {
   const orders = useSelector(allOrder);
+  console.log(orders);
   let total = 0;
   return (
     <section
@@ -31,9 +32,13 @@ export default function CartView(props) {
         {orders.length > 0 ? (
           <div className="h-[calc(100%-68px)] flex flex-col">
             <div className="grid auto-rows-[120px] h-[600px] md:h-4/5 overflow-auto my-2">
-              {orders.map((order, i) => {
-                total = total+ (order.price*order.quantity)
-                return <ListOrders key={order.id} order={order}></ListOrders>;
+              {orders.map((order, index) => {
+                total =
+                  total +
+                  (order.price -
+                    (order.price * (order.sale === 0 ? 1 : order.sale)) / 100) *
+                    order.quantity;
+                return <ListOrders key={index} order={order}></ListOrders>;
               })}
             </div>
             <div className=" flex-1 border-t-[1px] border-solid border-gray-900 p-6">
@@ -41,7 +46,10 @@ export default function CartView(props) {
                 <p>Thành tiền : </p>
                 <p>{VND.format(total)}</p>
               </div>
-              <Link to={'/checkout'} className="bg-[#53c66e] flex flex-row items-center gap-1 justify-center font-medium py-4 cursor-pointer hover:opacity-70">
+              <Link
+                to={"/checkout"}
+                className="bg-[#53c66e] flex flex-row items-center gap-1 justify-center font-medium py-4 cursor-pointer hover:opacity-70"
+              >
                 THANH TOÁN NGAY<BsArrowRight></BsArrowRight>
               </Link>
             </div>

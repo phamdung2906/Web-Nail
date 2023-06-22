@@ -3,19 +3,19 @@ import React from "react";
 const FormsNail = () => {
   const formNail = [
     {
-      img: "./imagespublic/sp1.jpg",
+      img: "./form/form1.png",
       title: "Móng Tròn Nhọn",
     },
     {
-      img: "./imagespublic/sp2.jpg",
+      img: "./form/form3.jpg",
       title: "Móng Nhọn",
     },
     {
-      img: "./imagespublic/sp3.jpg",
+      img: "./form/form4.jpg",
       title: "Móng Vuông",
     },
     {
-      img: "./imagespublic/sp4.jpg",
+      img: "./form/form2.jpg",
       title: "Móng Thang",
     },
   ];
@@ -24,7 +24,7 @@ const FormsNail = () => {
       id="form-mong"
       className="max-w-[1300px] mx-auto p-4 my-5 flex flex-col items-center"
     >
-      <h1 className="font-light lg:text-4xl text-center text-3xl p-4">
+      <h1 className="font-medium lg:text-4xl text-center text-3xl p-4">
         CÁC DẠNG MÓNG NAILBOX
       </h1>
       <div className="my-5 grid grid-cols-1 grid-rows-4 p-4 gap-8 md:grid-cols-2 md:grid-rows-2 xl:grid-cols-4 xl:grid-rows-1">

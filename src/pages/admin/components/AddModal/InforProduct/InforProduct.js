@@ -7,8 +7,10 @@ import { upLoadInfor } from "../AddModal";
 
 const InforProduct = () => {
   const { state, dispatch } = useContext(upLoadInfor);
-  const [isChecked, setIsChecked] = useState(false);
-  const [selector, setSelector] = useState("Select type");
+  const [isChecked, setIsChecked] = useState(state.hot || false);
+
+  const [selector, setSelector] = useState("Chọn loại sản phẩm");
+
   const handleSelector = (e) => {
     dispatch({ type: "AddType", tpe: e });
     setSelector(e);
@@ -17,21 +19,20 @@ const InforProduct = () => {
   const dropdown = () => {
     setDrop(!drop);
   };
-  const listType = ["Mat meo", "Sang trong", "Nhu flash", "Luxury"];
+  const listType = ["Mắt mèo", "Sang trọng", "Dễ thương", "Tối màu"];
   function handleCheckboxChange(event) {
-    console.log(event.target.checked);
     dispatch({ type: "AddHot", hot: event.target.checked });
     setIsChecked(event.target.checked);
   }
-
+  let booleanVal = JSON.parse(isChecked);
   const PricePart = () => {
     return (
       <div>
-        <label>Price : </label>
+        <label>Giá : </label>
         <input
           type="number"
           className="w-3/5 px-2 py-1 bg-inherit rounded-md ml-1 border-2 border-gray-300 text-base"
-          placeholder={"Nhap gia tien"}
+          placeholder={"Nhập giá tiền"}
           onChange={(e) =>
             dispatch({ type: "AddPrice", price: parseInt(e.target.value) })
           }
@@ -44,11 +45,11 @@ const InforProduct = () => {
   const SalePart = () => {
     return (
       <div>
-        <label>Sale</label>
+        <label>Sale (%) : </label>
         <input
           type="number"
-          className="w-3/5 px-2 py-1 bg-inherit rounded-md ml-1 border-2 border-gray-300 text-base"
-          placeholder={"Nhap gia tien"}
+          className="w-2/5 px-2 py-1 bg-inherit rounded-md ml-1 border-2 border-gray-300 text-base"
+          placeholder={"Phần trăm sale"}
           onChange={(e) =>
             dispatch({ type: "AddSale", sale: parseInt(e.target.value) })
           }
@@ -59,14 +60,14 @@ const InforProduct = () => {
   };
   const TypePart = () => {
     return (
-      <div className="flex flex-row mt-1">
-        <label>Type : </label>
+      <div className="flex flex-row ">
+        <label>Loại : </label>
         <div className="relative w-3/5">
           <span
             onClick={dropdown}
             className="flex flex-row items-center justify-center text-base font-normal gap-2 px-2 cursor-pointer h-full"
           >
-            {selector}
+            {state.type || selector}
             <SlArrowDown className="absolute right-0 text-base" />
           </span>
           <ul
@@ -90,23 +91,23 @@ const InforProduct = () => {
   };
   const HotPart = () => {
     return (
-      <div className="mt-1 flex items-center">
-        <span className="mr-2">Hot : </span>
+      <div className="flex items-center">
+        <span className="mr-2">Nổi bật : </span>
         <label className="text-base translate-y-[1px]">
-          {isChecked ? "Yes" : "No"}
           <input
             type="checkbox"
-            checked={isChecked}
+            checked={booleanVal}
             onChange={handleCheckboxChange}
-            className="ml-2 w-4 h-4 translate-y-[3px]"
+            className="mr-2 w-4 h-4 translate-y-[3px]"
           />
+          {booleanVal ? "Có" : "Không"}
         </label>
       </div>
     );
   };
 
   return (
-    <div className=" my-2 grid grid-cols-2 grid-rows-2 text-xl">
+    <div className=" my-2 grid grid-cols-2 grid-rows-2 text-lg">
       {PricePart()}
       {SalePart()}
       <TypePart />

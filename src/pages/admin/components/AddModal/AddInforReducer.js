@@ -41,5 +41,6 @@ export const AddInforReducer = (state, action) => {
                 ...state,
                 description:action.description
             }
+        default:
     }
 }

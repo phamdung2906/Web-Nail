@@ -6,7 +6,7 @@ const Slogan = () => {
       id="spotlight"
       className="max-w-[1300px] mx-auto p-4 my-10 flex flex-col items-center"
     >
-      <h1 className="px-10 py-4 relative text-center font-light text-3xl">
+      <h1 className="px-10 py-4 relative text-center font-normal text-3xl">
         <i class="fa-solid fa-quote-left absolute top-0 left-3 opacity-20 md:left-0  text-4xl"></i>
         Hãy tỏa sáng theo cách riêng của bạn
         <i class="fa-solid fa-quote-right absolute right-3 top-0 opacity-20 md:right-0 text-4xl"></i>

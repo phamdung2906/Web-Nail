@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MenuView(props) {
   return (
     <section
@@ -20,12 +22,35 @@ export default function MenuView(props) {
             class="fa-solid fa-x text-2xl cursor-pointer"
           ></i>
         </div>
-        <ul className="bg-slate-300 p-4 text-2xl">
-          <li>Home</li>
-          <li>Home</li>
-          <li>Home</li>
-          <li>Home</li>
-        </ul>
+        <div className=" p-4 text-2xl flex flex-col gap-2">
+          <Link
+            onClick={() => {
+              props.onClick("menu");
+            }}
+            className="hover:bg-gray-300 p-4"
+            to={"/"}
+          >
+            Trang chủ
+          </Link>
+          <Link
+            onClick={() => {
+              props.onClick("menu");
+            }}
+            className="hover:bg-gray-300 p-4"
+            to={"/allproducts"}
+          >
+            Tất cả sản phẩm
+          </Link>
+          <a
+            onClick={() => {
+              props.onClick("menu");
+            }}
+            href="#footer"
+            className="hover:bg-gray-300 p-4"
+          >
+            Về DiamondNail
+          </a>
+        </div>
       </div>
     </section>
   );

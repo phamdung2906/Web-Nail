@@ -23,7 +23,7 @@ export default function Header() {
     ? document.body.classList.add("active-menu-view")
     : document.body.classList.remove("active-menu-view");
 
-  const number = useSelector(allOrder).length
+  const number = useSelector(allOrder).length;
   return (
     <header className="bg-[#f8f7f4] text-black sticky top-0 z-10 border-b-2 border-black">
       <section className="max-w-[1500px] mx-auto p-4 flex flex-row justify-between items-center text-xl">
@@ -34,18 +34,26 @@ export default function Header() {
           className="sm:text-xl"
         >
           <i class="fa-solid fa-bars text-xl"></i>{" "}
-          <span className="hidden  md:inline-block">Menu</span>
+          <span className="hidden font-medium md:inline-block">Menu</span>
         </button>
-        <Link to={'/'} className="text-2xl md:text-3xl">Diamond NailBox</Link>
+        <Link
+          to={"/"}
+          onClick={() => window.scrollTo(0.0)}
+          className="text-2xl md:text-3xl font-medium"
+        >
+          Diamond NailBox
+        </Link>
         <button
           onClick={() => {
             handleView("cart");
           }}
           className="sm:text-xl"
         >
-          <span className="hidden md:inline-block">Giỏ Hàng</span>{" "}
+          <span className="hidden md:inline-block font-normal">Giỏ Hàng</span>{" "}
           <i class="fa-solid fa-cart-shopping text-xl"></i>
-          <span className="absolute top-3 text-base">{number > 0 ? number :''}</span>
+          <span className="absolute top-3 text-base">
+            {number > 0 ? number : ""}
+          </span>
         </button>
         {cart && <CartView onClick={handleView}></CartView>}
         {menu && <MenuView onClick={handleView}></MenuView>}

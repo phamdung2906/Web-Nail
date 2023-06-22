@@ -10,13 +10,16 @@ const orderSlice = createSlice({
   reducers: {
     addedOrder: (state, actions) => {
       const { order } = actions.payload;
-      const index = state.orders.findIndex((od) => od.id === order.id);
+      const index = state.orders.findIndex(
+        (od) =>
+          od.id === order.id && od.size === order.size && od.form === order.form
+      );
       if (index !== -1) {
         state.orders.map((od) =>
-          od.id === order.id ? { ...od, quantity: (od.quantity += 1) } : od
+          od.id === order.id ? { ...od, quantity: (od.quantity += order.quantity) } : od
         );
-      }else{
-        state.orders.push(order)
+      } else {
+        state.orders.push(order);
       }
     },
     deleteOrder: (state, action) => {
