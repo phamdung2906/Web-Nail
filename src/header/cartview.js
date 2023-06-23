@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { VND } from "../VND";
 export default function CartView(props) {
   const orders = useSelector(allOrder);
-  console.log(orders);
+
   let total = 0;
   return (
     <section
@@ -37,7 +37,7 @@ export default function CartView(props) {
                   total +
                   (order.price -
                     (order.price * (order.sale === 0 ? 1 : order.sale)) / 100) *
-                    order.quantity;
+                  order.quantity;
                 return <ListOrders key={index} order={order}></ListOrders>;
               })}
             </div>

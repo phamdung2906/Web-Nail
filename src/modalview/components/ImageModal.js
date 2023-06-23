@@ -9,13 +9,13 @@ const ImageModal = ({ images }) => {
       <div className="w-full h-[420px] sm:h-[80%]">
         <img
           className="w-full h-full p-2 rounded-2xl mx-auto"
-          src={`${URLBE}${mainImg}`}
+          src={`${URLBE}/images/${mainImg}`}
           alt="anhsp"
         ></img>
       </div>
       <div className="h-24 md:h-32 items-center flex flex-row justify-evenly p-2">
         {images.map((e, i) => {
-          const URL = `${URLBE}${e}`
+          const URL = `${URLBE}/images/${e}`
           return (
             <img
               key={i}

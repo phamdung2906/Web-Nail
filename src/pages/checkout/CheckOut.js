@@ -21,7 +21,7 @@ const CheckOut = () => {
       return { ...pre, orders: productsOfOrder };
     });
   }, [productsOfOrder]);
-  console.log(productsOfOrder);
+ 
   return (
     <orderBill.Provider value={{ bill, setBill }}>
       <section className="w-full h-screen">

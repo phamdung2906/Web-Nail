@@ -18,7 +18,7 @@ export default function HomePage() {
           backgroundImage: `url(${require("../../images/m.jpg")})`,
           backgroundRepeat: "no-repeat",
         }}
-        className="w-100% h-[550px] bg-cover bg-center md:h-[700ox] lg:h-[770px]"
+        className="w-100% h-[550px] bg-cover bg-center md:h-[700px] lg:h-[770px]"
       ></div>
       <HotProducts />
       <Diamond />

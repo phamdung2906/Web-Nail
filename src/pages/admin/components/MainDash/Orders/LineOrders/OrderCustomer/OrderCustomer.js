@@ -1,5 +1,5 @@
 import { VND } from "../../../../../../../VND";
-
+import { URLBE } from "../../../../../../../BackendURL";
 export default function OrderOfCustomer({ orderOfCustomer }) {
   const ProductOfOrder = ({ inforOfOrder }) => {
     return (
@@ -7,7 +7,7 @@ export default function OrderOfCustomer({ orderOfCustomer }) {
         <div className="h-20 w-20">
           <img
             className="w-full h-full"
-            src={`http://localhost:5000/images/${inforOfOrder.img}`}
+            src={`${URLBE}images/${inforOfOrder.img}`}
             alt={inforOfOrder.name}
           />
         </div>

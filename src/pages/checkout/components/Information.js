@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import { orderBill } from "../CheckOut";
-
+import { URLBE } from "../../../BackendURL";
 const Information = () => {
   const { bill, setBill } = useContext(orderBill);
- 
+
   const handleOrder = (event) => {
     const postOrder = async () => {
-      const URL = "http://localhost:5000/order";
+      const URL = `${URLBE}order`;
 
       const orderData = {
         name: bill.name,
@@ -20,7 +20,7 @@ const Information = () => {
         quanhuyen: bill.quanhuyen,
         orders: bill.orders,
       };
-      console.log(orderData);
+
       const response = await fetch(URL, {
         method: "POST",
         headers: {
@@ -51,7 +51,7 @@ const Information = () => {
       alert("Vui lòng chọn tối thiểu 1 sản phẩm để đặt hàng");
     } else postOrder();
   };
-  console.log(bill);
+
   return (
     <section className="lg:border-r-2 lg:border-black px-10 flex-1 lg:order-1 order-2">
       <div className="flex items-center justify-center flex-col my-8">

@@ -39,7 +39,7 @@ const InforModal = ({ product }) => {
     price: product.price,
     sale: product.sale,
   };
-  console.log(product);
+ 
   const handleAddOrder = (event) => {
     // console.log(newOrder);
     if (size !== "" && form !== "") {
