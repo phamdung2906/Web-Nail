@@ -1,3 +1,3 @@
-export const URLBE =  'https://backenddiamondnail.netlify.app/'
+export const URLBE = 'https://web-nail-backend.vercel.app/' 
 
-// ' 'http://127.0.0.1:5000/'
+// ' 'https://backenddiamondnail.netlify.app/'
