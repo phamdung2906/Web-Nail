@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import LoadingOrder from "./LoadingOrder";
 import AcceptedOrder from "./AcceptedOrder";
 import CancelOrder from "./CancelOrder";
+import { URLBE } from "../../../../../BackendURL";
 export const titleOrder = React.createContext();
 const AllOrders = () => {
   const [title, setTitle] = useState("loading");
-  const URL = "https://backenddiamondnail.netlify.app/orders";
+  const URL = `${URLBE}orders`;
   const [fullOrder, setFullOrder] = useState([]);
   useEffect(() => {
     const fecthData = async () => {
@@ -24,15 +25,15 @@ const AllOrders = () => {
       order.status === "loading"
         ? (a += 1)
         : order.status === "accepted"
-        ? (b += 1)
-        : (c += 1)
+          ? (b += 1)
+          : (c += 1)
     );
     let t =
       header === "loading"
         ? `Chờ xử lý ${a === 0 ? "" : `(${a})`}`
         : header === "accepted"
-        ? `Đã xác nhận ${b === 0 ? "" : `(${b})`}`
-        : `Đã Hủy ${c === 0 ? "" : `(${c})`}`;
+          ? `Đã xác nhận ${b === 0 ? "" : `(${b})`}`
+          : `Đã Hủy ${c === 0 ? "" : `(${c})`}`;
     return (
       <div
         onClick={() => setTitle(header)}
@@ -43,7 +44,7 @@ const AllOrders = () => {
       </div>
     );
   };
- 
+
   return (
     <titleOrder.Provider value={{ fullOrder, setFullOrder }}>
       <div className="bg-gray-100 ">
