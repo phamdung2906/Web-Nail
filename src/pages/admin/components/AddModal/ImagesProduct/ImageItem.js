@@ -5,7 +5,7 @@ import { URLBE } from "../../../../../BackendURL";
 const ImageItem = ({ file ,handleDeleteImg , index}) => {
   const img =
   typeof file === "string"
-    ? `${URLBE}${file}`
+    ? `${URLBE}/images/${file}`
     : file.url;
   return (
     <div className="group w-[23%] h-32 relative">

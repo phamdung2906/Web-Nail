@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { VND } from "../../../../../VND";
 import { AiTwotoneEdit, AiOutlineDelete } from "react-icons/ai";
 import { newProductStore } from "../../../Admin";
-
+import { URLBE } from "../../../../../BackendURL";
 const LineTable = ({
   name,
   img,
@@ -14,7 +14,7 @@ const LineTable = ({
   idProduct,
   handleEdit,
 }) => {
-  const imgURL = "https://backenddiamondnail.netlify.app/" + img;
+  const imgURL = `${URLBE}/images/` + img;
   const ImagePart = () => {
     return (
       <td className="flex h-full items-center">
@@ -38,7 +38,7 @@ const LineTable = ({
     const arrClone = products.slice();
     const newArr = arrClone.filter((e) => e.idProduct !== idProduct);
     setProducts(newArr);
-    const URL = `https://backenddiamondnail.netlify.app/${idProduct}`;
+    const URL = `${URLBE}${idProduct}`;
     console.log(URL);
     console.log(idProduct);
     const deleteOnServer = async () => {

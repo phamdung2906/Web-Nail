@@ -6,10 +6,11 @@ import { URLBE } from "../../../../../BackendURL";
 export const titleOrder = React.createContext();
 const AllOrders = () => {
   const [title, setTitle] = useState("loading");
-  const URL = `${URLBE}orders`;
+
   const [fullOrder, setFullOrder] = useState([]);
   useEffect(() => {
     const fecthData = async () => {
+      const URL = `${URLBE}orders`;
       const res = await fetch(URL);
       const data = await res.json();
       setFullOrder(data.data);
