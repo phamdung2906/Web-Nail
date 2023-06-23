@@ -41,7 +41,7 @@ export default function Header() {
           onClick={() => window.scrollTo(0.0)}
           className="text-2xl md:text-3xl font-medium"
         >
-          Diamond NailBox 1
+          Diamond NailBox
         </Link>
         <button
           onClick={() => {
