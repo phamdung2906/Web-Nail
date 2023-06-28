@@ -3,6 +3,7 @@ import { VND } from "../../../../VND";
 import { URLBE } from "../../../../BackendURL";
 const ItemProduct = ({ product, handleModal, setModalItem }) => {
   const IMGURL = `${URLBE}images/${product.images[0]}`;
+  console.log(IMGURL);
   return (
     <div
       onClick={() => {

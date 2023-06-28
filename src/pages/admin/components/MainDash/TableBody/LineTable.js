@@ -14,7 +14,7 @@ const LineTable = ({
   idProduct,
   handleEdit,
 }) => {
-  const imgURL = `${URLBE}/images/` + img;
+  const imgURL = `${URLBE}images/` + img;
   const ImagePart = () => {
     return (
       <td className="flex h-full items-center">
@@ -38,8 +38,8 @@ const LineTable = ({
     const arrClone = products.slice();
     const newArr = arrClone.filter((e) => e.idProduct !== idProduct);
     setProducts(newArr);
-    const URL = `${URLBE}${idProduct}`;
-    console.log(URL);
+    const URL = `${URLBE}product/${idProduct}`;
+    
     console.log(idProduct);
     const deleteOnServer = async () => {
       const response = await fetch(URL, {

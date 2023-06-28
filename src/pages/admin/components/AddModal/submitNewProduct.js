@@ -32,20 +32,24 @@ export const submitNewProduct = ({
     formData.append("status", "Running");
     formData.append("description", state.description);
 
-    const fecthData = async () => {
+    const fecthData = () => {
       state.images.forEach((img, index) => {
         formData.append(`image[${index}]`, img);
       });
       formData.append("idProduct", nanoid());
-      const response = await fetch(URL, {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-      // console.log(data.newProduct);
+      const sendRequest = async () => {
+        const response = await fetch(URL, {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        console.log(data);
+        console.log("data : "  + data.newProduct);
 
-      await setProducts((pre) => [...pre, data.newProduct]);
-      await setViewModal(false);
+        await setProducts((pre) => [...pre, data.newProduct]);
+      }
+      sendRequest()
+      setViewModal(false);
     };
     const updateProduct = async () => {
       formData.append("idProduct", productEdited.idProduct);
@@ -66,10 +70,10 @@ export const submitNewProduct = ({
       const newArr = cloneProducts.map((pro) =>
         pro.idProduct === editedProduct.idProduct
           ? {
-              idProduct: editedProduct.idProduct,
-              hot: editedProduct.hot === "false" ? false : true,
-              ...editedProduct,
-            }
+            idProduct: editedProduct.idProduct,
+            hot: editedProduct.hot === "false" ? false : true,
+            ...editedProduct,
+          }
           : pro
       );
       await setProducts(newArr);
