@@ -9,7 +9,7 @@ const ImageModal = ({ images }) => {
       <div className="w-full h-[420px] sm:h-[80%]">
         <img
           className="w-full h-full p-2 rounded-2xl mx-auto"
-          src={`${URLBE}/images/${mainImg}`}
+          src={`${URLBE}images/${mainImg}`}
           alt="anhsp"
         ></img>
       </div>
